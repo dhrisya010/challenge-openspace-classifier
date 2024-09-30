@@ -57,6 +57,8 @@ class Table:
              count += 1
             
        return count
+    
+    
        
     
       

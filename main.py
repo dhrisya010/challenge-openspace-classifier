@@ -1,8 +1,13 @@
 from utils.openspace import Openspace
+from utils.table import Table
+import csv
 
-names = ['Adheeba','Anastasiia','Basma','Dhrisya','Ihor','Izabela','Kelli','Kevin','Levin','Maarten','Majid','Minh Duc','Moustafa',
-        'Muntadher','Nicolaas','Petra','Rasmita','Rik','Soha','Tom','Urson','Veena','Wouter','Yeliz','Yusra','Zelimkhan']
-
+with open("utils/new_colleagues.csv", newline="") as csv_file:
+    contents = csv.reader(csv_file, delimiter=" ", quotechar="|")
+    names = []
+    for row in contents:
+        names.append(row)
+    print(names)
 
 
 openSpace = Openspace()
@@ -10,3 +15,7 @@ openSpace = Openspace()
 openSpace.organize(names)
 
 openSpace.display()
+
+table = Table()
+
+table.left_capacity()

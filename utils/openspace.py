@@ -33,8 +33,12 @@ class Openspace:
         for table_index, table in enumerate(self.tables):
             print(f"Table {table_index + 1}:")
             for seat_index, seat in enumerate(table.seats):
-                occupant = seat.occupant if seat.occupant else "Empty"
-                print(f"  Seat {seat_index + 1}: {occupant}")
+                if seat_index == 0 and seat.occupant:
+                    print(f"  Seat {seat_index + 1}: {seat.occupant} (Leader)") # First seat, and it is occupied
+                else:
+                    occupant = seat.occupant if seat.occupant else "Empty"
+                    print(f"  Seat {seat_index + 1}: {occupant}")
+                
 
            
 
